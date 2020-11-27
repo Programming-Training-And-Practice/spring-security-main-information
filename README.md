@@ -12,9 +12,11 @@
 * [Application Security Key Terms.](#application-security-key-terms)
 * [Authentication Providers.](#authentication-providers)
 * [Password Storage.](#password-storage)
+* [Spring Security Authentication Components.](#spring-security-authentication-components)
 * [Spring Security Modules.](#spring-security-modules)
 * [Spring Security for Common Vulnerabilities.](#spring-security-for-common-vulnerabilities)
 * [Spring Security XXS Prevention.](#spring-security-xxs-prevention)
+* [In Memory User Details Manager.](#in-memory-user-details-manager)
 * [Help](#help)
 
 
@@ -75,6 +77,19 @@
 
 
 
+## Spring Security Authentication Components:
+* Authentication Filter - A filter for a specific Authentication type in the Spring Security filter chain. 
+  (ie basic auth, remember me cookie, etc)
+* Authentication Manager - Standard API interface used by filter
+* Authentication Provider - The implementation of Authentication - (in memory, database, etc)
+* User Details Service - Service to provide information about user
+* Password Encoder - Service to encrypt and verify passwords
+* Security Context - Holds details about authenticated entity 
+
+
+
+
+
 ## Password Storage:
 * Spring Security supports a variety of methods to store and verify passwords
   * NoOp Password Encoder - plain text, not recommended - for legacy systems
@@ -127,6 +142,17 @@
   * Spring Security can easily be configured
   * Refer to OWASP for best practices
     * Link to OWASP recommendations in lesson resources
+
+
+
+
+
+## In Memory User Details Manager:
+* Implements User Details Service
+* Used by Spring Boot Auto-configuration
+* Non-persistent implementation - uses in-memory map
+* Mainly used for testing and demonstration purposes
+* Not normally used in production systems
 
 
 
